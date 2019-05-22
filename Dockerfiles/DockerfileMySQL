@@ -1,0 +1,12 @@
+#Usamos la imagen oficial de base.
+FROM mysql:8.0.16
+
+#Creamos la base de datos.
+ENV MYSQL_DATABASE payaradb
+ENV MYSQL_USER usuario
+ENV MYSQL_PASSWORD nepe
+ENV MYSQL_ROOT_PASSWORD changeit
+ENV TZ Europe/Madrid
+
+#Añadimos la base de datos.
+COPY --chown=mysql:mysql ./MySQL/database.sql /docker-entrypoint-initdb.d/
